@@ -414,3 +414,19 @@ Complete.imdb = function(query, callback) {
     }));
   });
 };
+
+Complete.addCompletionEngine = function(name, requestUrl, baseUrl, apiUrl,
+  queryParser, completeFunction)
+{
+  this.engines.push(name);
+
+  this.requestUrls[name] = requestUrl;
+  this.baseUrls[name] = baseUrl;
+  this.apis[name] = apiUrl;
+
+  if (queryParser !== null) {
+    this.parseQuery[name] = queryParser;
+  }
+
+  this[name] = completeFunction;
+}
