@@ -430,3 +430,23 @@ Complete.addCompletionEngine = function(name, requestUrl, baseUrl, apiUrl,
 
   this[name] = completeFunction;
 }
+
+Complete.addCompletionEngine('octopart',
+  'https://octopart.com/search?q=',
+  'https://octopart.com',
+  'https://octopart.com/suggest?q=%s',
+  function(query) {
+    return query.replace(' ', '+');
+  },
+  function(query, callback) {
+    httpRequest({
+      url: this.apis['octopart'].embedString(encodeURIComponent(query)),
+      json: false
+    }, function(response) {
+      callback(response.split('\n').map(function(e) {
+        return e;
+      }));
+    });
+  }
+);
+
