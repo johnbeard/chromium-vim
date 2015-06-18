@@ -8,6 +8,7 @@ let scrollduration = 250
 let homedirectory = '/home/jake'
 let searchlimit = 25
 let completionengines = ['google', 'wikipedia', 'imdb', 'amazon', 'wolframalpha', 'duckduckgo']
+let searchengine googlefr = {'request': 'google', 'locale':'fr', 'complete':'yahoo'}
 let qmark a = ['http://www.reddit.com/r/learnjavascript/new', 'http://www.reddit.com/r/learnpython/new/', 'http://www.reddit.com/r/learnprogramming/new']
 imap <C-o> editWithVim
 map <C-o> :duplicate<CR>

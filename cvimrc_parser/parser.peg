@@ -105,10 +105,19 @@ ArrayLiteral
   = '[' a:ArrayList ']' { return a; }
   / '[' SEP? ']' { return []; }
 
+HashList
+  = SEP? a:StringLiteral SEP? ':' SEP? b:Expression SEP? ',' SEP? c:  =  SEP? { c[a] = b; return c; }
+  / SEP? a:StringLiteral SEP? ':' SEP? b:Expression { var d = {}; d[a] = b; return d; }
+
+HashLiteral
+  = '{' a:HashList '}' { return a; }
+  / '{' SEP? '}' { return {}; }
+
 Expression
   = StringLiteral
   / NumberLiteral
   / ArrayLiteral
+  / HashLiteral
 
 LetStatement
   = LET SEP a:Identifier SEP? '=' SEP? b:Expression {
