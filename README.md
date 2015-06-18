@@ -24,6 +24,7 @@ These extensions do a wonderful job of adding Vim-like keybindings to Google Chr
   * Smooth scrolling
 
 #cVim Help
+
 ###cVimrc
 
  * Boolean cVimrc settings are enabled with the command ```'set' + <SETTING_NAME>``` and disabled with
@@ -65,6 +66,7 @@ These extensions do a wonderful job of adding Vim-like keybindings to Google Chr
 | configpath                          | string                             | Read the cVimrc from this local file when configpath is set                               | ""                                                                          |
 | changelog                           | boolean                            | Auto open the changelog when cVim is updated                                              | true                                                                        |
 | completionengines                   | array of strings                   | use only the specified search engines                                                     | ["google", "duckduckgo", "wikipedia", "amazon"]                             |
+| allcompletionengines                | boolean                            | use all available default search engines                                                  | false
 | blacklists                          | array of strings                   | disable cVim on the sites matching one of the patterns                                    | []                                                                          |
 | mapleader                           | string                             | The default `<Leader>` key                                                                | \                                                                           |
 | highlight                           | string                             | the highlight color in find mode                                                          | "#ffff00"                                                                   |
@@ -290,7 +292,8 @@ map <Tab> :call switchHintCharacters<CR>
     ```vim
 let completionengines = ['google', 'google-image', 'youtube'] " Show only these engines in the command bar
     ```
-
+  * Setting the `allcompletionengines` option will enable all available default completion engines
+    and overrides the `completionengines` list
 
 #Keybindings
 

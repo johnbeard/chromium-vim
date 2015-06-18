@@ -1062,7 +1062,8 @@ Command.onDOMLoadAll = function() {
 
 Command.updateSettings = function(config) {
   var key;
-  if (Array.isArray(config.completionengines) &&
+  if (!config.allcompletionengines &&
+      Array.isArray(config.completionengines) &&
       config.completionengines.length) {
     Complete.setUsedEngines(config.completionengines);
   }
